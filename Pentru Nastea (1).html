@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pentru Nastea</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500;1,600&family=Karla:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff4ef;--bg2:#ffe3e8;--ink:#3a1f33;--soft:#7a5670;--card:rgba(255,255,255,.72);--line:rgba(120,60,100,.18);--acc:#c2467a;--pol:#e8902a;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1b1026;--bg2:#2c1236;--ink:#fbeee9;--soft:#c9a9c2;--card:rgba(255,255,255,.07);--line:rgba(255,220,240,.18);--acc:#ff86b3;--pol:#ffb04d}}
+:root[data-theme="dark"]{--bg:#1b1026;--bg2:#2c1236;--ink:#fbeee9;--soft:#c9a9c2;--card:rgba(255,255,255,.07);--line:rgba(255,220,240,.18);--acc:#ff86b3;--pol:#ffb04d}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:linear-gradient(180deg,var(--bg),var(--bg2));background-attachment:fixed;color:var(--ink);font-family:Karla,system-ui,sans-serif;line-height:1.6;min-height:100%;overflow-x:hidden}
+#bg{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.fl{position:absolute;animation:sway var(--d) ease-in-out infinite alternate;opacity:var(--o)}
+.fl svg{width:100%;height:100%;display:block}
+@keyframes sway{from{transform:translateY(0) rotate(calc(var(--r) - 8deg))}to{transform:translateY(-28px) rotate(calc(var(--r) + 8deg))}}
+.drop{position:fixed;z-index:5;pointer-events:none;animation:fall var(--t,3.5s) ease-in forwards}
+@keyframes fall{to{transform:translate(var(--x,0),105vh) rotate(var(--rot,300deg));opacity:.2}}
+main{position:relative;z-index:1;max-width:900px;margin:0 auto;padding:0 20px 80px}
+section{padding:56px 0}
+h1,h2{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;margin:0;line-height:1.05}
+h1{font-size:clamp(3.4rem,15vw,7.5rem);font-style:italic;color:var(--acc)}
+h2{font-size:clamp(2rem,6vw,3.2rem);font-style:italic;margin-bottom:8px}
+.hero{min-height:92vh;display:flex;flex-direction:column;justify-content:center;text-align:center}
+.hero p.sub{font-size:1.15rem;color:var(--soft);max-width:34ch;margin:12px auto 28px}
+.count{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;max-width:560px;margin:0 auto 12px}
+.count div{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 4px;backdrop-filter:blur(6px)}
+.count b{display:block;font-family:'Cormorant Garamond',serif;font-size:clamp(1.7rem,7vw,2.6rem);font-weight:600;color:var(--acc);font-variant-numeric:tabular-nums}
+.count span{font-size:.78rem;color:var(--soft)}
+.small{font-size:.9rem;color:var(--soft)}
+button{font:inherit;cursor:pointer;color:inherit}
+.btn{background:var(--acc);color:#fff;border:0;border-radius:999px;padding:12px 26px;font-weight:600;transition:transform .15s}
+.btn:active{transform:scale(.95)}
+.btn.ghost{background:transparent;color:var(--acc);border:1.5px solid var(--acc)}
+button:focus-visible{outline:3px solid var(--pol);outline-offset:2px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:26px;backdrop-filter:blur(8px)}
+#reason{min-height:150px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;margin:18px 0}
+#reason .n{font-family:'Cormorant Garamond',serif;font-size:3rem;color:var(--pol);line-height:1}
+#reason p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1.4rem,4.5vw,2rem);margin:6px 0 0;line-height:1.3}
+.pop{animation:pop .45s cubic-bezier(.2,1.4,.4,1)}
+@keyframes pop{from{transform:scale(.85);opacity:0}}
+.bar{height:6px;background:var(--line);border-radius:9px;overflow:hidden;margin:6px 0 18px}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--pol),var(--acc));transition:width .4s}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(46px,1fr));gap:8px}
+.grid button{aspect-ratio:1;border-radius:50%;border:1px solid var(--line);background:var(--card);font-weight:600;color:var(--soft);transition:.2s}
+.grid button:hover{border-color:var(--acc);color:var(--acc)}
+.grid button.on{background:var(--acc);border-color:var(--acc);color:#fff}
+.grid button.cur{box-shadow:0 0 0 3px var(--pol)}
+.letter{text-align:center}
+#env{font-size:3.4rem;background:none;border:0;transition:transform .3s}
+#env:hover{transform:rotate(-8deg) scale(1.1)}
+#msg{max-height:0;overflow:hidden;transition:max-height 1s ease;text-align:left}
+#msg.open{max-height:900px}
+#msg p{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-style:italic;margin:12px 0}
+.miss{display:flex;gap:12px;align-items:center;justify-content:center;flex-wrap:wrap;margin-top:24px}
+footer{text-align:center;color:var(--soft);font-size:.9rem;padding:20px}
+.tg{position:fixed;top:calc(10px + env(safe-area-inset-top,0px));right:12px;z-index:9;background:var(--card);border:1px solid var(--line);border-radius:999px;width:40px;height:40px;backdrop-filter:blur(6px)}
+html{-webkit-text-size-adjust:100%}button{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+@media (max-width:480px){section{padding:40px 0}.count{gap:5px}.count div{border-radius:10px}.card{padding:20px}#msg p{font-size:1.2rem}.grid{grid-template-columns:repeat(auto-fill,minmax(40px,1fr));gap:6px}.btn{padding:13px 22px}}
+@media (prefers-reduced-motion:reduce){.fl,.drop{animation:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<defs>
+<linearGradient id="pg" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#f6a6c1"/><stop offset=".35" stop-color="#ffe6ee"/><stop offset="1" stop-color="#fffafa"/></linearGradient>
+<path id="pt" d="M50 52C28 34 36 10 50 1C64 10 72 34 50 52Z" fill="url(#pg)" stroke="#d98aa9" stroke-width=".8"/>
+<symbol id="lily" viewBox="0 0 100 100">
+<use href="#pt" transform="rotate(60 50 50)"/><use href="#pt" transform="rotate(180 50 50)"/><use href="#pt" transform="rotate(300 50 50)"/>
+<use href="#pt"/><use href="#pt" transform="rotate(120 50 50)"/><use href="#pt" transform="rotate(240 50 50)"/>
+<g stroke="#b5527a" stroke-width="1" fill="#e8902a"><path d="M50 50L50 24M50 50L72 38M50 50L28 38M50 50L68 66M50 50L32 66"/><circle cx="50" cy="23" r="2.6"/><circle cx="72.5" cy="37.5" r="2.6"/><circle cx="27.5" cy="37.5" r="2.6"/><circle cx="68.5" cy="66.5" r="2.6"/><circle cx="31.5" cy="66.5" r="2.6"/></g>
+<circle cx="50" cy="50" r="3.5" fill="#8fb27a"/>
+</symbol>
+</defs></svg>
+
+<div id="bg"></div>
+<button class="tg" id="tg" aria-label="Schimbă tema">🌙</button>
+
+<main>
+<section class="hero">
+  <p class="small">pentru singurul meu crin</p>
+  <h1>Nastea</h1>
+  <p class="sub">Mi-e dor de tine. Așa că ți-am construit un loc doar al nostru.</p>
+  <div class="count" id="count" aria-live="off">
+    <div><b id="cm">0</b><span>luni</span></div>
+    <div><b id="cd">0</b><span>zile</span></div>
+    <div><b id="ch">0</b><span>ore</span></div>
+    <div><b id="cn">0</b><span>minute</span></div>
+    <div><b id="cs">0</b><span>secunde</span></div>
+  </div>
+  <p class="small" id="clab"></p>
+  <div class="miss">
+    <button class="btn" id="dor">Trimite-mi dor 🤍</button>
+    <span class="small" id="dorc"></span>
+  </div>
+</section>
+
+<section>
+  <h2>100 de motive pentru care te iubesc</h2>
+  <p class="small">Apasă pe un număr sau lasă-mă să aleg eu unul pentru tine.</p>
+  <div class="card" id="reason"><div class="n">♡</div><p>Alege un motiv...</p></div>
+  <div style="text-align:center"><button class="btn" id="rnd">Un motiv la întâmplare</button></div>
+  <p class="small" style="margin-top:22px" id="prog">0 / 100 descoperite</p>
+  <div class="bar"><i id="pb"></i></div>
+  <div class="grid" id="grid"></div>
+</section>
+
+<section class="letter">
+  <h2>Un mic secret</h2>
+  <p class="small">Deschide plicul.</p>
+  <button id="env" aria-label="Deschide scrisoarea">💌</button>
+  <div class="card" id="msg">
+    <p>Nasteacika,</p>
+    <p>mie dor de tine foarte tare, viața fără tine nu are sens, iar eu sunt un nimeni fără tine. Nu există dimineață sau noapte fără să mă gândesc la tine: ești primul gând, ultimul gând și gândul ce mă parcurge toată ziua.</p>
+    <p>Tu ești motivul de ce viața chiar are sens și pot zâmbi și râde cu adevărat!</p>
+    <p style="text-align:right">Al tău Cosmin 🤍</p>
+  </div>
+</section>
+</main>
+<footer>Făcut cu dor pentru barebuhu meu. Apasă oriunde ca să înflorească crini.</footer>
+
+<script>
+const START=new Date(2026,3,20,0,0,0);
+const R=["Zâmbetul tău îmi schimbă ziua.","Felul în care sună „Nastea” se simte ca acasă.","Ochii tăi mă fac să uit ce voiam să spun.","Râsul tău e melodia mea preferată.","Mă faci să mă simt în siguranță.","Ești frumoasă chiar și atunci când nu știi.","Mâna ta se potrivește perfect cu a mea.","Cu tine tăcerea e confortabilă.","Ai grijă de mine fără să ceri nimic.","Mă faci să vreau să fiu mai bun.","Îmbrățișările tale repară orice zi proastă.","Ești curajoasă în felul tău liniștit.","Te gândești la ceilalți înaintea ta.","Mirosul tău mă liniștește.","Vocea ta e primul lucru pe care vreau să-l aud dimineața.","Ai o blândețe rară.","Râzi de glumele mele proaste.","Mă asculți cu adevărat.","Ești iubita mea și cea mai bună prietenă în același timp.","Cu tine orice plan banal devine aventură.","Mă iubești exact cum sunt.","Te îmbujorezi când îți fac un compliment.","Ai un suflet frumos.","Mă faci să cred în lucrurile frumoase.","Felul în care îți încrețești nasul când râzi.","Mesajele tale îmi luminează ecranul.","Ești puternică și delicată deodată.","Fiecare clipă cu tine contează.","Ai vise mari și mă inspiri.","Observi detaliile mici.","Mă calmezi când sunt stresat.","Ești adorabilă când ești somnoroasă.","Faci orice loc să pară mai cald.","Ai o minte isteață.","Mă surprinzi mereu.","Ești sinceră cu mine.","Îmi place cum îți prinzi părul.","Mă privești de parcă aș fi special.","Ești răbdătoare cu mine.","Cu tine timpul zboară.","Îmi place cum îmi spui numele.","Ai un umor care mă cucerește.","Mă faci să zâmbesc fără niciun motiv.","Ești loială.","Dragostea ta e liniștită și puternică.","Îmi place să te privesc când nu observi.","Ești cel mai frumos „bună dimineața”.","Ești cel mai dulce „noapte bună”.","Mă faci să visez la viitor.","Ești jumătatea de care nu știam că am nevoie.","Te-aș alege din nou în fiecare zi.","Ai o energie care mă încarcă.","Ești elegantă fără efort.","Îmi place parfumul tău.","Mă încurajezi când mă îndoiesc.","Ești mai frumoasă decât orice crin.","Îți amintești lucruri mici despre mine.","Ai o inimă mare.","Mă faci să mă simt acasă oriunde.","Pentru că 20 aprilie 2026 a început cea mai frumoasă poveste.","Ești autentică.","Îmi place cum dansezi fără să-ți pese.","Te bucuri de lucrurile mici.","Mă ții de mână chiar și când nu spunem nimic.","Ești pacea mea.","Fiecare poveste a ta merită ascultată.","Îți strălucește fața când ești fericită.","Ești inspirația mea.","Ai o frumusețe care nu se uită.","Mă faci să vreau să-ți dau lumea întreagă.","Ești încăpățânată într-un mod adorabil.","Ești modestă, și asta te face și mai specială.","Ai grijă de cei dragi.","Ne completăm perfect.","Ești speranța mea în zilele gri.","Cu tine mă simt înțeles.","Ești fluturii din stomacul meu.","Ai un zâmbet care vindecă.","Faci lucrurile obișnuite speciale.","Mă faci să cred în dragoste.","Ești liniștea de după furtună.","Îmi lipsești chiar și când ești în camera alăturată.","Ești atât de... tu.","Îți pasă de mine mai mult decât îți dai seama.","Mă faci să râd până mă doare.","Ai o privire care spune totul.","Ești curajoasă când iubești.","Mă faci să vreau să te ocrotesc.","Ești cel mai bun lucru care mi s-a întâmplat.","Îmi place să-mi imaginez viitorul cu tine.","Ești fascinantă.","Mă faci recunoscător pentru lucrurile mici.","Ești casa inimii mele.","Ai tot ce mi-am dorit vreodată.","Ești minunată în fiecare anotimp.","Te iubesc pentru toate motivele pe care le știu,","...și pentru cele pe care încă nu le-am descoperit.","Pentru că ești Nastea.","Pentru că mă iubești.","Pentru că fără tine lumea ar fi fără culoare."];
+
+/* crini în fundal */
+const bg=document.getElementById('bg');
+const lily=(s)=>`<svg viewBox="0 0 100 100"><use href="#lily"/></svg>`;
+for(let i=0;i<16;i++){
+  const d=document.createElement('div');d.className='fl';
+  const s=60+Math.random()*130;
+  d.style.cssText=`width:${s}px;height:${s}px;left:${Math.random()*96}%;top:${Math.random()*92}%;--d:${5+Math.random()*6}s;--r:${Math.random()*360}deg;--o:${.14+Math.random()*.22};animation-delay:${-Math.random()*6}s`;
+  d.innerHTML=lily();bg.appendChild(d);
+}
+
+/* ploaie de crini */
+function drop(x,y,big){
+  const e=document.createElement('div');e.className='drop';
+  const s=(big?30:22)+Math.random()*30;
+  e.style.cssText=`left:${x-s/2}px;top:${y-s/2}px;width:${s}px;height:${s}px;--x:${(Math.random()-.5)*160}px;--rot:${(Math.random()-.5)*700}deg;--t:${2.8+Math.random()*2}s`;
+  e.innerHTML=lily();document.body.appendChild(e);setTimeout(()=>e.remove(),5200);
+}
+function rain(n){for(let i=0;i<n;i++)setTimeout(()=>drop(Math.random()*innerWidth,-30,true),i*90)}
+document.addEventListener('pointerdown',e=>{if(e.target.closest('button'))return;for(let i=0;i<3;i++)drop(e.clientX,e.clientY)});
+
+/* contor */
+const $=id=>document.getElementById(id);
+function tick(){
+  const now=new Date();let a=START,b=now,fut=now<START;
+  if(fut){a=now;b=START}
+  let m=(b.getFullYear()-a.getFullYear())*12+b.getMonth()-a.getMonth();
+  let t=new Date(a);t.setMonth(t.getMonth()+m);if(t>b){m--;t=new Date(a);t.setMonth(t.getMonth()+m)}
+  let ms=b-t,d=Math.floor(ms/864e5);ms-=d*864e5;
+  const h=Math.floor(ms/36e5);ms-=h*36e5;const mi=Math.floor(ms/6e4);const s=Math.floor((ms-mi*6e4)/1e3);
+  $('cm').textContent=m;$('cd').textContent=d;$('ch').textContent=h;$('cn').textContent=mi;$('cs').textContent=s;
+  const tot=Math.floor(Math.abs(b-a)/864e5);
+  $('clab').textContent=fut?`până pe 20 aprilie 2026 · ${tot} zile`:`de la 20 aprilie 2026, de când suntem împreună · ${tot} zile`;
+}
+tick();setInterval(tick,1000);
+
+/* motive */
+const grid=$('grid');let seen=new Set(),cur=-1;
+try{seen=new Set(JSON.parse(localStorage.getItem('nastea-seen')||'[]'))}catch(e){}
+R.forEach((_,i)=>{const b=document.createElement('button');b.textContent=i+1;b.setAttribute('aria-label','Motivul '+(i+1));b.onclick=()=>show(i);grid.appendChild(b)});
+function show(i){
+  cur=i;seen.add(i);
+  try{localStorage.setItem('nastea-seen',JSON.stringify([...seen]))}catch(e){}
+  const r=$('reason');r.innerHTML=`<div class="n">${i+1}</div><p>${R[i]}</p>`;r.classList.remove('pop');void r.offsetWidth;r.classList.add('pop');
+  const rc=r.getBoundingClientRect();drop(rc.left+rc.width/2,rc.top+20,true);
+  paint();
+}
+function paint(){
+  [...grid.children].forEach((b,i)=>{b.classList.toggle('on',seen.has(i));b.classList.toggle('cur',i===cur)});
+  $('prog').textContent=seen.size+' / 100 descoperite'+(seen.size===100?' · le-ai văzut pe toate, dar sunt mai multe 🤍':'');
+  $('pb').style.width=seen.size+'%';
+}
+$('rnd').onclick=()=>{const left=R.map((_,i)=>i).filter(i=>!seen.has(i));const pool=left.length?left:R.map((_,i)=>i);show(pool[Math.floor(Math.random()*pool.length)])};
+paint();
+
+/* scrisoare, dor, temă */
+$('env').onclick=()=>{$('msg').classList.toggle('open');rain(14);$('msg').scrollIntoView({behavior:'smooth',block:'center'})};
+let dc=0;try{dc=+localStorage.getItem('nastea-dor')||0}catch(e){}
+function dorTxt(){$('dorc').textContent=dc?`dor trimis: ${dc} ori`:''}dorTxt();
+$('dor').onclick=()=>{dc++;try{localStorage.setItem('nastea-dor',dc)}catch(e){}dorTxt();rain(22)};
+$('tg').onclick=()=>{const r=document.documentElement;const dark=r.dataset.theme?r.dataset.theme==='dark':matchMedia('(prefers-color-scheme:dark)').matches;r.dataset.theme=dark?'light':'dark';$('tg').textContent=dark?'🌙':'☀️'};
+</script>
+</body>
+</html>
